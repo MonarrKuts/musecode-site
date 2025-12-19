@@ -70,12 +70,18 @@ body{
 .site-footer{text-align:center;color:rgba(255,255,255,0.35);font-size:13px;margin-top:20px}
 
 @media (max-width:700px){
+  /* Make layout top-aligned on small screens so header isn't pushed under the status bar */
+  body{align-items:flex-start;justify-content:flex-start;padding-top:calc(20px + constant(safe-area-inset-top));padding-top:calc(20px + env(safe-area-inset-top));padding-left:12px;padding-right:12px;padding-bottom:20px}
+
   .card{padding:22px;border-radius:14px}
   .title{font-size:20px}
   .countdown{grid-template-columns:repeat(2,1fr)}
   .subscribe{flex-direction:column}
   .subscribe button{width:100%}
-  .brand img{height:64px;max-height:80px}
+  /* Reduce logo size so header fits comfortably on narrow screens */
+  .brand img{height:48px;max-height:56px}
+  /* Slightly tighten header spacing */
+  .site-header{padding:10px 12px 0}
 }
 
 @media (prefers-reduced-motion: no-preference){
