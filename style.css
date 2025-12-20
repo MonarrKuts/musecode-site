@@ -24,7 +24,7 @@ body{
 
 .wrap{width:100%;max-width:980px}
 .site-header{display:flex;align-items:center;justify-content:space-between;padding:14px 12px 0}
-.brand{display:flex;align-items:center;gap:8px}
+.brand{display:flex;align-items:center;gap:10px}
 .brand img{height:150px;max-height:150px;width:auto;display:block}
 .brand a{font-weight:700;font-size:20px;color:#F4C430;text-decoration:none;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
 .brand a span{color:#ffffff; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
@@ -147,6 +147,7 @@ body{
   }
   .feat-item strong { margin-bottom: 0; }
 }
+
 
 
 
