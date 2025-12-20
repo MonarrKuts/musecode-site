@@ -7,7 +7,135 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"><!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>MuseCode — Creative Store Coming Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site-header">
+        <div class="brand">
+          <img src="musecodelogo-cup.png" alt="MuseCode logo">
+          <a>muse<span>code</span></a>
+        </div>
+        <nav class="header-links">
+          <a href="mailto:hello@musecode.co" aria-label="Contact">Contact</a>
+        </nav>
+      </header>
+
+      <main class="hero" role="main">
+        <div class="card">
+          <h1 class="title">Something beautiful is brewing</h1>
+          <p class="lead">A boutique creative store featuring premium templates for developers and elite firms.</p>
+
+          <div class="promo">
+            <span class="badge">LATEST RELEASE</span>
+            <h2 class="promo-title">Crown Counsel Law Template</h2>
+            <p class="promo-sub">A premium, hand-coded boutique legal website. Includes full source code + setup guide.</p>
+            <div class="promo-actions">
+               <a class="primary-btn" href="https://payhip.com/b/M10Fh" target="_blank" rel="noopener">👉 View on Payhip — $45</a>
+            </div>
+          </div>
+
+          <div class="countdown" id="countdown" aria-live="polite">
+            <div class="time"><span id="days">00</span><small>Days</small></div>
+            <div class="time"><span id="hours">00</span><small>Hours</small></div>
+            <div class="time"><span id="mins">00</span><small>Mins</small></div>
+            <div class="time"><span id="secs">00</span><small>Secs</small></div>
+          </div>
+
+          <form id="subscribe" class="subscribe" action="#" onsubmit="(e=>{e.preventDefault();subscribe();})(event)">
+            <input id="email" type="email" placeholder="Get early access" required aria-label="Email address">
+            <button type="submit">Notify Me</button>
+          </form>
+
+          <p class="privacy">Join the waitlist for the full store launch.</p>
+
+          <div class="social">
+            <a class="icon" href="#" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.4" fill="none"/>
+                <circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.4" fill="none"/>
+                <circle cx="17.5" cy="6.5" r="0.7" fill="currentColor"/>
+              </svg>
+            </a>
+            <a class="icon" href="#" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 .5C5.73.5.86 5.37.86 11.64c0 4.8 3.13 8.87 7.47 10.32.55.1.75-.24.75-.53 0-.26-.01-1.12-.02-2.03-3.04.66-3.68-1.45-3.68-1.45-.5-1.27-1.22-1.61-1.22-1.61-.99-.68.08-.67.08-.67 1.09.08 1.66 1.12 1.66 1.12.98 1.68 2.57 1.2 3.2.92.1-.72.38-1.2.69-1.48-2.43-.28-4.99-1.22-4.99-5.43 0-1.2.43-2.18 1.12-2.95-.11-.28-.49-1.4.11-2.92 0 0 .92-.29 3.02 1.12a10.5 10.5 0 0 1 5.49 0c2.1-1.41 3.02-1.12 3.02-1.12.6 1.52.22 2.64.11 2.92.7.77 1.12 1.75 1.12 2.95 0 4.22-2.57 5.15-5.01 5.42.39.34.73 1.02.73 2.06 0 1.49-.01 2.69-.01 3.05 0 .29.2.64.76.53 4.34-1.45 7.47-5.52 7.47-10.32C23.14 5.37 18.27.5 12 .5z" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </main>
+
+      <footer class="site-footer">© <span id="year"></span> MuseCode — Crafted with care</footer>
+    </div>
+
+    <script>
+      // COUNTDOWN LOGIC
+      // Target: January 19th, 2025 (30 days from now)
+      const target = new Date("2025-01-19T00:00:00");
+
+      function updateCountdown(){
+        const now = new Date();
+        const diff = Math.max(0, target - now);
+        const days = Math.floor(diff / (1000*60*60*24));
+        const hours = Math.floor((diff / (1000*60*60)) % 24);
+        const mins = Math.floor((diff / (1000*60)) % 60);
+        const secs = Math.floor((diff / 1000) % 60);
+        
+        document.getElementById('days').textContent = String(days).padStart(2,'0');
+        document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+        document.getElementById('mins').textContent = String(mins).padStart(2,'0');
+        document.getElementById('secs').textContent = String(secs).padStart(2,'0');
+      }
+      setInterval(updateCountdown, 1000); 
+      updateCountdown();
+
+      // FORMSPREE SUBSCRIPTION HANDLER
+      function subscribe(){
+        const e = document.getElementById('email');
+        const val = e.value.trim();
+        if(!val) return;
+
+        e.disabled = true;
+        const originalPlaceholder = e.placeholder;
+        e.placeholder = 'Sending...';
+
+        const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xgowewqn';
+
+        fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email: val })
+        }).then(response => {
+          if(response.ok){
+            e.value = '';
+            e.placeholder = 'Thanks — you\'re on the list!';
+          } else {
+            e.placeholder = 'Try again later';
+          }
+        }).catch(err => {
+          e.placeholder = 'Error sending';
+        }).finally(() => {
+          setTimeout(()=>{ e.placeholder = originalPlaceholder; e.disabled = false; }, 3000);
+        });
+      }
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
   </head>
   <body>
     <div class="wrap">
@@ -126,4 +254,5 @@
     </script>
   </body>
 </html>
+
 
