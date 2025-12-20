@@ -83,21 +83,41 @@
       // Target: January 19th, 2025 (30 days from now)
       const target = new Date("2025-01-19T00:00:00");
 
+       <script>
+
+      // Countdown target: 30 days from now
+
+      const target = new Date(); target.setDate(target.getDate() + 29);
+
+
+
       function updateCountdown(){
+
         const now = new Date();
+
         const diff = Math.max(0, target - now);
+
         const days = Math.floor(diff / (1000*60*60*24));
+
         const hours = Math.floor((diff / (1000*60*60)) % 24);
+
         const mins = Math.floor((diff / (1000*60)) % 60);
+
         const secs = Math.floor((diff / 1000) % 60);
-        
+
         document.getElementById('days').textContent = String(days).padStart(2,'0');
+
         document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+
         document.getElementById('mins').textContent = String(mins).padStart(2,'0');
+
         document.getElementById('secs').textContent = String(secs).padStart(2,'0');
+
       }
-      setInterval(updateCountdown, 1000); 
-      updateCountdown();
+
+      setInterval(updateCountdown, 1000); updateCountdown();
+
+
 
       // FORMSPREE SUBSCRIPTION HANDLER
       function subscribe(){
@@ -254,5 +274,6 @@
     </script>
   </body>
 </html>
+
 
 
