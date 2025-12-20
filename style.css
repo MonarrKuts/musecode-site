@@ -62,11 +62,56 @@ body{
   display: inline-block;
   margin-bottom: 10px;
 }
+/* Feature List Replacement for Countdown */
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 24px;
+}
 
-.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px;opacity:0.78}
-.countdown .time{background:rgba(255,255,255,0.01);padding:10px;border-radius:8px;text-align:center}
-.countdown .time span{display:block;font-size:16px;font-weight:700;color:#fff}
-.countdown .time small{display:block;color:rgba(255,255,255,0.55);font-size:11px;margin-top:4px}
+.feat-item {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.feat-item strong {
+  display: block;
+  font-size: 13px;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.feat-item span {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* Updated Promo Action Styling */
+.promo-actions {
+  margin-top: 10px;
+}
+
+.primary-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #cfa76a, #9b7a4b); /* Gold gradient to match Crown Counsel */
+  color: #000;
+  padding: 14px 22px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(207, 167, 106, 0.2);
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(207, 167, 106, 0.3);
+}
+
 
 .subscribe{display:flex;gap:10px}
 .subscribe input{flex:1;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--muted);outline:none}
@@ -87,7 +132,6 @@ body{
 
   .card{padding:22px;border-radius:14px}
   .title{font-size:20px}
-  .countdown{grid-template-columns:repeat(2,1fr)}
   .subscribe{flex-direction:column}
   .subscribe button{width:100%}
   /* Reduce logo size so header fits comfortably on narrow screens */
@@ -98,5 +142,20 @@ body{
 
 @media (prefers-reduced-motion: no-preference){
   .icon, .subscribe button{transition:transform .18s ease, color .18s ease}
+}
+/* Mobile Tweak for Feature List */
+@media (max-width: 700px) {
+  .feature-list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .feat-item {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+  }
+  .feat-item strong { margin-bottom: 0; }
 }
 
